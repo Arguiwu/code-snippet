@@ -9,3 +9,5 @@
 | --------   | -----:  | :----:  | :----:  |
 | 实现一个高度自适应的输入框        | [查看](https://arguiwu.github.io/code-snippet/autosize.html)     | [查看](./docs/autosize.html)   | [百度UEX](http://eux.baidu.com/blog/2017/08/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E7%9A%84%E8%BE%93%E5%85%A5%E6%A1%86) |
 | css3 vs js 实现钟表动画        | [查看](https://arguiwu.github.io/code-snippet/clock.html)     | [查看](./docs/clock.html)   | [携程设计委员会](http://ued.ctrip.com/blog/5459.html) |
+| 上手SVG动画        | [查看](https://arguiwu.github.io/code-snippet/svg-demo.html)     | [查看](./docs/svg-demo.html)   | [凹凸实验室](https://aotu.io/notes/2017/05/04/example-for-svg-animation/) |
+| 模拟页面顶部加载条        | [查看](https://arguiwu.github.io/code-snippet/progress-bar)     | [查看](./docs/progress-bar)   |  |
