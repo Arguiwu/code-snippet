@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.wrap-content {
+			height: 100vh;
+			background-color: #1d466d;
+			background: linear-gradient(0deg, #403b6b, #0f4271);
+		}
+		.stars {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+			opacity: .5;
+			background: url(images/stars.png) repeat top;
+			z-index: 0;
+		}
+		.header {
+			padding-top: 10vh;
+			height: 30vh;
+		}
+		.body {
+			height: 40vh;
+		}
+		.city {
+			height: 30vh;
+			background-image: url(images/vector-cityscape-silhouette.png);
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+			background-position: bottom;
+			z-index: 2;
+		}
+		.laser-container {
+			width: 160px;
+			height: 100%;
+			margin: 0 auto;
+		}
+		.laser {
+			position: absolute;
+			border: 35vh solid transparent;
+			bottom: 23vh;
+			height: 0;
+			width: 0;
+			z-index: 18;
+			border-top-color: hsla(0,0%,100%,.17);
+			border-bottom-width: 0;
+			transform: rotate(-25deg);
+			transform-origin: bottom center;
+			border-top-width: 35vh;
+			border-left-width: 80px;
+			border-right-width: 80px;
+			animation: moveLaser 6s linear infinite;
+		}
+		.laser-circle {
+			position: absolute;
+			bottom: calc(35vh - 60px);
+			left: -80px;
+			width: 160px;
+			height: 120px;
+			border-radius: 50%;
+			background: #c1c9d2;
+			box-shadow: 0 0 15px 4px hsla(0,0%,100%,.2)
+		}
+		.catman-wrapper {
+			position: relative;
+			height: 100%;
+		}
+		.catman {
+			position: absolute;
+			width: 160px;
+			top: 10px;
+			left: 0;
+			height: 75%;
+			background-image: url(images/catman.svg);
+			z-index: 20;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: 50%;
+		}
+		@keyframes moveLaser {
+			50% {
+				transform:rotate(25deg)
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap-content">
+		<div class="stars"></div>
+		<div class="header"></div>
+		<div class="body">
+			<div class="laser-container">
+				<div class="laser">
+					<div class="laser-circle">
+						<div class="catman-wrapper">
+							<div class="catman"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="city"></div>
+	</div>
+</body>
+</html>
