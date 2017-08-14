@@ -7,6 +7,7 @@
 
 | 标题        | 示例   |  代码  | 来源 |
 | --------   | -----:  | :----:  | :----:  |
+| 用 Sass 和 BEM 制作响应式时间线 | [查看](https://arguiwu.github.io/code-snippet/timeline)     | [查看](./docs/timeline)   | [原文](https://assortment.io/posts/building-responsive-timelines-in-css-sass-bem) |
 | 动态粒子网格动画        | [查看](https://arguiwu.github.io/code-snippet/DPMA.html)     | [查看](./docs/DPMA.html)   |  |
 | 一个好看的404页面        | [查看](https://arguiwu.github.io/code-snippet/my-404.html)     | [查看](./docs/my-404.html)   |  |
 | 模拟页面顶部加载条        | [查看](https://arguiwu.github.io/code-snippet/progress-bar.html)     | [查看](./docs/progress-bar.html)   |  |
