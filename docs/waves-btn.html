@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按钮水波实现</title>
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+			outline: none;
+		}
+		body {
+			font-family: 'Open Sans';
+			font-size: 100%;
+			font-weight: 300;
+			line-height: 1.5;
+			text-align: center;
+		}
+		.btn {
+			display: inline-block;
+			width: 150px;
+			height: 40px;
+			margin: 10rem;
+			padding: 0;
+			color: #fff;
+			overflow: hidden;
+			line-height: 40px;
+			text-align: center;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		.btn.color-1 {
+			background-color: #426fc5;
+		}
+		.material-design {
+			position: relative;
+		}
+		.material-design canvas {
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: .25;
+		}
+		.container {
+			display: flex;
+			align-content: center;
+			align-items: flex-start;
+			flex-flow: row wrap;
+			justify-content: center;
+			margin: 0 auto;
+			max-width: 46rem;
+		}
+	</style>
+</head>
+<body>
+	<a class="btn color-1 material-design" data-color="#2f5398">canvas实现</a>
+	<script type="text/javascript">
+		window.onload = function() {
+			var canvas = {},
+				centerX = 0,
+				centerY = 0,
+				color = '',
+				containers = document.getElementsByClassName('material-design'),
+				context = {},
+				element = {},
+				radius = 0,
+				//根据callback生成 requestAnimationFrame动画
+				requestAnimaFrame = function() {
+					return (
+						window.requestAnimationFrame ||
+						window.mozRequestAnimationFrame ||
+						window.oRequestAnimationFrame ||
+						window.msRequestAnimationFrame ||
+						function(callback) {
+							window.setTimeout(callback, 1000 / 60);
+						}
+					)
+				}(),
+				//为每个指定元素生成canvas
+				init = function() {
+					[].forEach.call(containers, function(e) {
+						canvas = document.createElement('canvas');
+						canvas.addEventListener('click', press, false);
+						e.appendChild(canvas);
+						canvas.style.width = '100%';
+						canvas.style.height = '100%';
+						canvas.width = canvas.offsetWidth;
+						canvas.height = canvas.offsetHeight;
+					});
+				},
+				// 点击获取所需要的 数据 等等
+				press = function(event) {
+					element = event.toElement;
+					color = element.parentElement.dataset.color;
+					context = element.getContext('2d');
+					radius = 0;
+					centerX = event.offsetX;
+					centerY = event.offsetY;
+					context.clearRect(0, 0, element.width, element.height);
+					draw();
+				},
+				// 绘制图形 执行动画
+				draw = function() {
+					context.beginPath();
+					context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+					context.fillStyle = color;
+					context.fill();
+					radius += 4;
+					if(radius < element.width) {
+						requestAnimaFrame(draw);
+					}
+				};
+			init();
+		};
+	</script>
+</body>
+</html>
