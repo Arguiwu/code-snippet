@@ -26,6 +26,6 @@ module.exports = chunk
 
 //demo
 
-var list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-var newList = chunk(list, 5)
-console.log(newList)
+//var list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+//var newList = chunk(list, 5)
+//console.log(newList) => [[1,2,3,4,5], [6,7,8,9]]
