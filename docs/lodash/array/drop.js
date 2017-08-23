@@ -18,6 +18,6 @@ module.exports = drop
 
 //demo
 
-const a = [1,2,3,4];
-const b = drop(a, 3);
-console.log(b)
+// const a = [1,2,3,4];
+// const b = drop(a, 3);
+// console.log(b)

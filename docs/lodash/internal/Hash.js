@@ -69,4 +69,15 @@ class Hash {
 	}
 }
 
+// demo
+
+// const hash = new Hash();
+// hash.set('abc', 123);
+// console.log(hash.has('abc'))
+// hash.set('abc', 321);
+// hash.set('bcd', 234);
+// console.log(hash.get('abc'))
+// console.log(hash)
+
+
 module.exports = Hash
