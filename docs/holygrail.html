@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html {
+			height: 100%;
+		}
+		body {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			font: 24px Helvetica;
+		}
+		#main {
+			min-height: 600px;
+			display: flex;
+			flex: 1;
+			flex-direction: row;
+		}
+		#main > article {
+			margin: 4px;
+			padding: 5px;
+			border: 1px solid #cccc33;
+			border-radius: 7pt;
+			background: #dddd88;
+			flex: 3 1 60%;
+			order: 2;
+		}
+		#main > nav {
+			margin: 4px;
+			padding: 5px;
+			border: 1px solid #8888bb;
+			border-radius: 7pt;
+			background: #ccccff;
+			flex: 1 6 20%;
+			order: 1;
+		}
+		#main > aside {
+			margin: 4px;
+			padding: 5px;
+			border: 1px solid #8888bb;
+			border-radius: 7pt;
+			background: #ccccff;
+			flex: 1 6 20%;
+			order: 3;
+		}
+		header, footer {
+			display: block;
+			margin: 4px;
+			padding: 5px;
+			min-height: 100px;
+			border: 1px solid #eebb55;
+			border-radius: 7pt;
+			background: #ffeebb;
+		}
+		@media all and (max-width: 640px) {
+			#main{
+				flex-flow: column;
+				flex-direction: column;
+			}
+			#main > article, #main > nav, #main > aside {
+				order: 0;
+			}
+			#main > nav, #main > aside, header, footer {
+				min-height: 50px;
+				max-height: 50px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>头部</header>
+	<div id="main">
+		<article>文章</article>
+		<nav>导航</nav>
+		<aside>侧边</aside>
+	</div>
+	<footer>脚部</footer>
+</body>
+</html>
