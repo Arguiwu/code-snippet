@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rolling-dice</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+	<style type="text/css">
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			width: 100vw;
+			height: 100vh;
+			background: -webkit-linear-gradient(#071a1e 0%, #274249 100%);
+			background: -o-linear-gradient(#071a1e 0%, #274249 100%);
+			background: linear-gradient(#071a1e 0%, #274249 100%);
+		}
+		body {
+			font-size: .9em;
+			font-family: sans-serif;
+		}
+		#wrapper {
+			position: relative;
+			width: 200px;
+			padding-top: 100px;
+			margin: 0 auto;
+			perspective: 1200px;
+		}
+		#wrapper h2 {
+			color: #fff;
+			text-align: center;
+		}
+		#wrapper p {
+			text-align: center;
+		}
+		#platform {
+			margin-top: 100px;
+		}
+		#dice span {
+			position: absolute;
+			margin: 100px 0 0 100px;
+			display: block;
+			font-size: 2.5em;
+			padding: 10px;
+		}
+		#dice {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			transform-style: preserve-3d;
+			animation: spin 50s infinite linear;
+		}
+		.side {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background: #fff;
+			box-shadow: inset 0 0 40px #ccc;
+			border-radius: 40px;
+		}
+		#dice .cover,
+		#dice .inner {
+			background: #e0e0e0;
+			box-shadow: none;
+		}
+		#dice .cover {
+			border-radius: 0;
+			transform: translateZ(0px);
+		}
+		#dice .cover.x {
+			transform: rotateY(90deg);
+		}
+		#dice .cover.z {
+			transform: rotateX(90deg);
+		}
+		#dice .front {
+			transform: translateZ(100px);
+		}
+		#dice .front.inner {
+			transform: translateZ(98px);
+		}
+		#dice .back {
+			transform: rotateX(-180deg) translateZ(100px);
+		}
+		#dice .back.inner {
+			transform: rotateX(-180deg) translateZ(98px);
+		}
+		#dice .right {
+			transform: rotateY(90deg) translateZ(100px);
+		}
+		#dice .right.inner {
+			transform: rotateY(90deg) translateZ(98px);
+		}
+		#dice .left {
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+		#dice .left.inner {
+			transform: rotateY(-90deg) translateZ(98px);
+		}
+		#dice .top {
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		#dice .top.inner {
+			transform: rotateX(90deg) translateZ(98px);
+		}
+		#dice .bottom {
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+		#dice .bottom.inner {
+			transform: rotateX(-90deg) translateZ(98px);
+		}
+		.dot {
+			position: absolute;
+			width: 46px;
+			height: 46px;
+			border-radius: 23px;
+			background: #444;
+			box-shadow: inset 5px 0 10px #000;
+		}
+		.dot.center {
+			margin: 77px 0 0 77px;
+		}
+		.dot.dtop {
+			margin-top: 20px;
+		}
+		.dot.dleft {
+			margin-left: 134px;
+		}
+		.dot.dright {
+			margin-left: 20px;
+		}
+		.dot.dbottom {
+			margin-top: 134px;
+		}
+		.dot.center.dleft {
+			margin: 77px 0 0 20px;
+		}
+		.dot.center.dright {
+			margin: 77px 0 0 134px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<h2>请使用手机浏览</h2>
+		<p><img src="https://pan.baidu.com/share/qrcode?w=150&h=150&url=https://arguiwu.github.io/code-snippet/rolling-dice.html"></p>
+		<div id="platform">
+			<div id="dice">
+				<div class="side front">
+					<div class="dot center"></div>
+				</div>
+				<div class="side front inner"></div>
+				<div class="side top">
+					<div class="dot dtop dleft"></div>
+					<div class="dot dbottom dright"></div>
+				</div>
+				<div class="side top inner"></div>
+				<div class="side right">
+					<div class="dot dtop dleft"></div>
+					<div class="dot center"></div>
+					<div class="dot dbottom dright"></div>
+				</div>
+				<div class="side right inner"></div>
+				<div class="side left">
+					<div class="dot dtop dleft"></div>
+					<div class="dot dtop dright"></div>
+					<div class="dot dbottom dleft"></div>
+					<div class="dot dbottom dright"></div>
+				</div>
+				<div class="side left inner"></div>
+				<div class="side bottom">
+					<div class="dot center"></div>
+					<div class="dot dtop dleft"></div>
+					<div class="dot dtop dright"></div>
+					<div class="dot dbottom dleft"></div>
+					<div class="dot dbottom dright"></div>
+				</div>
+				<div class="side bottom inner"></div>
+				<div class="side back">
+					<div class="dot dtop dleft"></div>
+					<div class="dot dtop dright"></div>
+					<div class="dot dbottom dleft"></div>
+					<div class="dot dbottom dright"></div>
+					<div class="dot center dleft"></div>
+					<div class="dot center dright"></div>
+				</div>
+				<div class="side back inner"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		(function() {
+			const space = document.getElementById('dice')
+			if(window.DeviceOrientationEvent) {
+
+				window.addEventListener('deviceorientation', function(e) {
+					let alpha = e.alpha,
+						beta = e.beta,
+						gamma = e.gamma
+					space.style.webkitTransform = 'rotateX(' + beta + 'deg) rotateY(' + gamma + 'deg) rotateZ(' + alpha + 'deg)';
+					space.style.transform = 'rotateX(' + beta + 'deg) rotateY(' + gamma + 'deg) rotateZ(' + alpha + 'deg)';
+					space.style.mozkitTransform = 'rotateX(' + beta + 'deg) rotateY(' + gamma + 'deg) rotateZ(' + alpha + 'deg)';
+				})
+
+			}else {
+				document.querySelector('body').innerHTML = '浏览器不支持';
+			}
+		})()
+	</script>
+</body>
+</html>

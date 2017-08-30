@@ -7,6 +7,7 @@
 
 | 标题        | 示例   |  代码  | 来源 |
 | --------   | -----:  | :----:  | :----:  |
+| H5陀螺仪与css3 3D动画 | [查看](https://arguiwu.github.io/code-snippet/rolling-dice.html)     | [查看](./docs/rolling-dice.html)   | |
 | flex经典圣杯布局 | [查看](https://arguiwu.github.io/code-snippet/holygrail.html)     | [查看](./docs/holygrail.html)   | |
 | 按钮水波实现 | [查看](https://arguiwu.github.io/code-snippet/waves-btn.html)     | [查看](./docs/waves-btn.html)   | |
 | css实现瀑布布局 | [查看](https://arguiwu.github.io/code-snippet/m-layout.html)     | [查看](./docs/m-layout.html)   | |
