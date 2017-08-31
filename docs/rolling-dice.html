@@ -142,8 +142,10 @@
 </head>
 <body>
 	<div id="wrapper">
-		<h2>请使用手机浏览</h2>
-		<p><img src="https://pan.baidu.com/share/qrcode?w=150&h=150&url=https://arguiwu.github.io/code-snippet/rolling-dice.html"></p>
+		<div id="isPcShow">
+			<h2>请使用手机浏览</h2>
+			<p><img src="https://pan.baidu.com/share/qrcode?w=150&h=150&url=https://arguiwu.github.io/code-snippet/rolling-dice.html"></p>
+		</div>
 		<div id="platform">
 			<div id="dice">
 				<div class="side front">
@@ -205,6 +207,22 @@
 			}else {
 				document.querySelector('body').innerHTML = '浏览器不支持';
 			}
+
+
+
+			function os() {
+				const ua = navigator.userAgent,
+						isAndroid = /(?:Android)/.test(ua),
+						isPhone = /(?:iPhone)/.test(ua) && !isTablet;
+				return {
+					isPhone: isPhone,
+					isAndroid: isAndroid
+				}
+			}
+			if(os.isAndroid | os.isPhone) {
+				document.getElementById('isPcShow').style.display = 'none'
+			}
+
 		})()
 	</script>
 </body>
