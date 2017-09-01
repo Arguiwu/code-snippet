@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="./wallpaper.png" width="10%" id="img">
+	<p id="text"></p>
+	<script type="text/javascript">
+		window.onload = function() {
+			const img = document.getElementById('img')
+			const textDetector = new TextDetector()
+			textDetector.detect(img)
+				.then(detectedTextBlocks => {
+					for(const textBlock of detectedTextBlocks) {
+						document.getElementById('text').innerHTML = `text @ (${textBlock.boundingBox.x}, ${textBlock.boundingBox.y}), ` +
+							`size ${textBlock.boundingBox.width}x${textBlock.boundingBox.height}`
+					}
+				}).catch((err) => {
+					document.getElementById('text').innerHTML = err
+				})
+		}
+	</script>
+</body>
+</html>
