@@ -1,7 +1,7 @@
-const eq = require('../ang/eq.js')
+const eq = require('../lang/eq.js')
 
 /*
-	判断数组中是否存在某一项
+	查找数组中是否存在某一项的key是否存在
 	@privte
 	@param {Array} 
 */

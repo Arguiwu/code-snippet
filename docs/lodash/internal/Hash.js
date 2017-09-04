@@ -18,7 +18,7 @@ class Hash {
 		}
 	}
 	/*
-		移除键值对
+		清空键值对
 		@memberOf Hash
 	*/
 	clear() {
