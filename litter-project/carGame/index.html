@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script src="./lib/react-0.14.0.js"></script>
+	<script src="./lib/react-dom-0.14.0.js"></script>
+	<script src="./lib/browser.min.js"></script>
+	<title>赛车</title>
+</head>
+<body>
+	<div id="reactGame"></div>
+	<script type="text/babel">
+		var GameBoard = React.createClass({
+			getInitialState: function() {
+				return {
+					gameState: 0
+				}
+			},
+			render: function() {
+				return (
+					<div className="board">
+						<div className="roadbed"></div>
+						<div className="road">
+							<div className="hero"></div>
+							<div className="enemy"></div>
+						</div>
+						<span className="start"></span>
+						<span className="kilo"></span>
+						<div className="failbub">
+							<span className="failtext"></span>
+							<span className="retry"></span>
+						</div>
+					</div>
+				)
+			}
+		});
+		ReactDOM.render(
+			<GameBoard />,
+			document.getElementById('reactGame')
+		)
+	</script>
+</body>
+</html>
