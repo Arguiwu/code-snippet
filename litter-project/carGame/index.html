@@ -14,22 +14,71 @@
 		var GameBoard = React.createClass({
 			getInitialState: function() {
 				return {
-					gameState: 0
+					gameState: 0,
+					heroLoc: 0,
+					enemyLoc: 0,
+					enemyType: 0,
+					aniEnd: true
 				}
 			},
+			gameStart: function() {
+				this.setState({
+					gameState: 1,
+				})
+				this.createEnemy()
+			},
+			gameHandle: function(e) {
+				if(this.state.gameState == 1) {
+					switch (e.keyCode) {
+						case 37:
+							this.setState({ heroLoc: 0 })
+							break;
+						case 39:
+							this.setState({ heroLoc: 1 })
+							break;
+						default:
+							break;
+					}
+				}
+			},
+			createEnemy: function() {
+				const that = this
+				let enemyClass, enemyLoc,enemyType, animationEnd = true
+				setInterval(() => {
+					if(that.state.aniEnd && that.state.gameState == 1) {
+						that.setState({ aniEnd: false })
+						enemyType = Math.floor(Math.random() * 3)
+						enemyLoc = Math.round(Math.random())
+						that.setState({ enemyType: enemyType })
+						that.setState({ enemyLoc: enemyLoc })
+					}
+				}, 1000)
+				that.refs.enemy.addEventListener('webkitAnimationEnd', function() {
+					that.setState({ aniEnd: true })
+				})
+			},
+			componentDidMount: function() {
+				window.addEventListener('keydown', this.gameHandle, false)
+			},
 			render: function() {
+				const state = this.state;
+				const enemyCls = state.gameStart == 0 ? 'enemy' : ("enemy enemy"+ state.enemyType  + " loc" + state.enemyLoc)
 				return (
 					<div className="board">
-						<div className="roadbed"></div>
-						<div className="road">
-							<div className="hero"></div>
-							<div className="enemy"></div>
+						<div className={state.gameState == 1 ? 'roadbed roadRu' : 'roadbed' }></div>
+						<div className={state.gameState == 1 ? 'road roadPlay' : 'road' }>
+							<div className={state.heroLoc == 0 ? "hero left" : "hero right"}>
+								<div className="body"></div><span className="light"></span>
+							</div>
+							<div className={enemyCls} ref="enemy">
+								<div className='body'></div>
+							</div>
 						</div>
-						<span className="start"></span>
+						<span className={state.gameState == 0 ? 'start' : 'start hide'} onClick={this.gameStart}></span>
 						<span className="kilo"></span>
 						<div className="failbub">
 							<span className="failtext"></span>
-							<span className="retry"></span>
+							<span className="retry" onClick={this.gameRestart}></span>
 						</div>
 					</div>
 				)
