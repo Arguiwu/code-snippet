@@ -53,14 +53,14 @@ body{
 	margin-left:-160px;
 }
 .roadRun{
-	-webkit-transform:translateZ(0);
-	-webkit-animation:roadRun 1.2s linear infinite;
+	transform:translateZ(0);
+	animation:roadRun 1.2s linear infinite;
 }
-@-webkit-keyframes roadRun{
-	100%{ -webkit-transform:translateY(800px);}
+@keyframes roadRun{
+	100%{ transform:translateY(800px);}
 }
 .hero{
-	-webkit-transition:-webkit-transform .5s ease;
+	transition:transform .5s ease;
 	width:142px;
 	height:162px;
 	position:absolute;
@@ -75,7 +75,7 @@ body{
 	height:100%;
 }
 .hero .light{
-	-webkit-animation:light .6s ease infinite;
+	animation:light .6s ease infinite;
 	background:url(../resource/carLight.png) no-repeat 50% 0;
 	width:142px;
 	height:57px;
@@ -83,7 +83,7 @@ body{
 	top:-35px;
 	left:-4px;
 }
-@-webkit-keyframes light{
+@keyframes light{
 	0%{ opacity:1}
 	50%{ opacity:0.3}
 	100%{ opacity:1}
@@ -114,7 +114,7 @@ body{
 	padding-right:50px;
 }
 .enemy{
-	-webkit-transform:translateZ(0);
+	transform:translateZ(0);
 	width:142px;
 	position:absolute;
 }
@@ -145,34 +145,34 @@ body{
 }
 
 .roadPlay .hero{
-	-webkit-animation:show .5s ease;
+	animation:show .5s ease;
 	display:block;
 }
-@-webkit-keyframes show{
-	0%{ -webkit-transform:translateY(172px);}
+@keyframes show{
+	0%{ transform:translateY(172px);}
 }
 .hide{
 	display:none;
 }
 
 .hero.left{
-	-webkit-transform:translateX(0);
+	transform:translateX(0);
 }
 .hero.right{
-	-webkit-transform:translateX(178px);
+	transform:translateX(178px);
 }
 
 .enemy.speed0{
-	-webkit-animation:speed 1s linear;
+	animation:speed 1s linear;
 }
 .enemy.speed1{
-	-webkit-animation:speed 2s linear;
+	animation:speed 2s linear;
 }
 .enemy.speed2{
-	-webkit-animation:speed 2.5s linear;
+	animation:speed 2.5s linear;
 }
-@-webkit-keyframes speed{
-	100%{ -webkit-transform:translateY(1000px);}
+@keyframes speed{
+	100%{ transform:translateY(1000px);}
 }
 .enemy.loc0{
 	left:0;
@@ -223,7 +223,7 @@ body{
 	display:none;
 }
 .roadPlay .help{
-	-webkit-animation:help 2s ease forwards;
+	animation:help 2s ease forwards;
 	display:block;
 }
 
@@ -243,10 +243,10 @@ body{
 	display:none;
 }
 .helpsp.show{
-	-webkit-animation:help 2s ease forwards;
+	animation:help 2s ease forwards;
 	display:block;
 }
-@-webkit-keyframes help{
+@keyframes help{
 	0%{ opacity:0;}
 	40%{ opacity:1;}
 	80%{ opacity:1;}
@@ -255,7 +255,7 @@ body{
 
 .crashed .enemy,
 .crashed .roadbed{
-	-webkit-animation-play-state:paused;
+	animation-play-state:paused;
 }
 .crashed .hero .body{
 	background:url(../resource/heroDied.png) no-repeat;
@@ -264,19 +264,19 @@ body{
 	display:none;
 }
 .crashed .failbub{
-	-webkit-animation:failShow .5s ease;
+	animation:failShow .5s ease;
 	display:block;
 }
 
 
 
-@-webkit-keyframes failShow{
-	0%{ -webkit-transform:translateY(250px);}
-	80%{ -webkit-transform:translateY(-12px);}
-	100%{ -webkit-transform:translateY(0);}
+@keyframes failShow{
+	0%{ transform:translateY(250px);}
+	80%{ transform:translateY(-12px);}
+	100%{ transform:translateY(0);}
 }
 .superMode .hero .body{
-	-webkit-animation:heroSuper .1s ease infinite;
+	animation:heroSuper .1s ease infinite;
 	background:url(../resource/heroSuper.png) no-repeat 8px 0px;
 	height:176px;
 	bottom:4px;
@@ -284,24 +284,24 @@ body{
 .superMode .hero .light{
 	display:none;
 }
-@-webkit-keyframes heroSuper{
+@keyframes heroSuper{
 	0%{ opacity:1;}
 	50%{ opacity:.7;}
 	100%{ opacity:1;}
 }
 
 .superMode .roadRun{
-	-webkit-animation: roadRun .8s linear infinite;
+	animation: roadRun .8s linear infinite;
 }
 
 
 .superMode .enemy.loc0 .chunge{
-	-webkit-transition:-webkit-transform 1s ease-out;
-	-webkit-transform: translate3d(-80px,0,0) rotate(-280deg);
-	-webkit-transform-origin:left bottom;
+	transition:transform 1s ease-out;
+	transform: translate3d(-80px,0,0) rotate(-280deg);
+	transform-origin:left bottom;
 }
 .superMode .enemy.loc1 .chunge{
-	-webkit-transition:-webkit-transform 1s ease-out;
-	-webkit-transform: translate3d(80px,0,0) rotate(280deg);
-	-webkit-transform-origin:right bottom;
+	transition:transform 1s ease-out;
+	transform: translate3d(80px,0,0) rotate(280deg);
+	transform-origin:right bottom;
 }
