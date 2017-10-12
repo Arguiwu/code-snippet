@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #111;
+        }
+        #the-canvas {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -120px;
+            margin-left: -120px;
+            border: 1px solid #080;
+            border-radius: 50%;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="the-canvas" width="240" height="240"></canvas>
+    <script>
+        window.onload = function() {
+            function draw() {
+                var canvas = document.getElementById('the-canvas')
+                var ctx = canvas.getContext('2d')
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+                ctx.translate(120, 120)
+
+                ctx.rotate(0.05)
+
+                for(var i = 50; i < 150; i+= 25) {
+                    ctx.beginPath()
+                    ctx.strokeStyle = 'rgb(10, 100, 10)'
+                    ctx.setLineDash([2, 2])
+                    ctx.arc(0, 0, i, 0, Math.PI*2, true)
+                    ctx.stroke()
+                }
+
+                for(var i = 0; i < 80; i += 10) {
+                    ctx.fillStyle = 'green'
+                    ctx.fillRect(i, i,  10, 10)
+                }
+
+                ctx.translate(-120, -120)
+
+                window.requestAnimationFrame(draw)
+            }
+            window.requestAnimationFrame(draw)
+        }
+    </script>
+</body>
+</html>
