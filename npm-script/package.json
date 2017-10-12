@@ -1,0 +1,36 @@
+{
+	"name": "npm-script",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		// rimraf 删除dist下生成的文件
+		"clean": "rimraf dist/{css/*,js/*,images/*}",
+		// node-sass 将 src/scss下的所有SCSS文件编译成 css 压缩后 放到 dist.css下
+		"scss": "node-sass --output-style compressed -o dist/css src/scss",
+		// postcss-cli和autoprefixer 处理 dist/css/* 下所有css文件 以便适应浏览器兼容性
+		"autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+		// uglify-js mkdirp 合并压缩js文件
+		"uglify": "mkdirp -p dist/js &amp;&amp; uglifyjs src/js/*.js -m -o dist/js/app.js &amp;&amp; uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
+		// imagemin-cli 压缩图片
+		"imagemin": "imagemin src/images dist/images -p",
+		// svgo svg-sprite-generator  移除svg多余代码和 拼接精灵图
+		"icons": "svgo -f src/images/icons && mkdir -p dist/images && svg-sprite-generate -d src/images/icons -o dist/images/icons.svg",
+		// browser-sync 开启本地服务 自动更新文件 自动刷新浏览器
+		"serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js'",
+		// 任务组合
+		"build:css": "npm run scss && npm run autoprefixer",
+		"build:js": "npm run uglify",
+		"build:images": "npm run imagemin && npm run icons",
+		"build:all": "npm run build:css && npm run build:js && npm run build:images",
+		// onchange 监听文件变化 自动执行任务
+		"watch:css": "onchange 'src/scss/*.scss' -- npm run build:css",
+		"watch:js": "onchange 'src/js/*.js' -- npm run build:js",
+		// parallelshell 同时执行多个任务 && 是有执行顺序的
+		"watch:all": "parallelshell 'npm run serve' 'npm run watch:css' 'npm run watch:js'",
+		"postinstall": "npm run watch:all"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
