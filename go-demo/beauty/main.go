@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"goquery"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -13,23 +12,23 @@ import (
 )
 
 type ApiData struct {
-	Has_more int   `json:"has_more"`
+	Has_more int    `json:"has_more"`
 	Data     []Data `json:"data"`
 }
 
 type Data struct {
 	Title       string `json:"title"`
+	Imgs        []Img  `json:"image_detail"`
 	Article_url string `json:"article_url"`
 }
-
 type Img struct {
-	Src string `json:"src"`
+	Url string `json:"url"`
 }
 
 var (
 	host    string = "http://www.toutiao.com/search_content/?format=json&keyword=%s&count=30&offset=%d"
 	hasmore bool   = true
-	tag string
+	tag     string
 )
 
 func main() {
@@ -66,7 +65,6 @@ func getResFromApi(url string) {
 
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
-
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -75,7 +73,9 @@ func getResFromApi(url string) {
 	json.Unmarshal([]byte(string(body)), &res)
 
 	for _, item := range res.Data {
-		getImgByPage(item.Article_url)
+		arr := item.Imgs
+		var mySlice []Img = arr[:]
+		getImgByPage(item.Title, mySlice)
 	}
 
 	if res.Has_more == 0 {
@@ -83,22 +83,10 @@ func getResFromApi(url string) {
 	}
 }
 
-func getImgByPage(url string) {
-	if strings.Contains(url, "toutiao.com") {
-		doc, err := goquery.NewDocument(url)
-		if err != nil {
-			log.Fatal(err)
-		}
-		title := doc.Find("title").Text()
-		os.MkdirAll(tag+"/"+title, 0777)
-		doc.Find("script").Each(func(i int, s *goquery.Selection) {
-			fmt.Println(s.Text())
-		})
-		// doc.Find("#J_content .article-content img").Each(func(i int, s *goquery.Selection) {
-		// 	src, _ := s.Attr("src")
-		// 	log.Println(title, src)
-		// 	getImgAndSave(src, title)
-		// })
+func getImgByPage(title string, imgs []Img) {
+	os.MkdirAll(tag+"/"+title, 0777)
+	for _, item := range imgs {
+		getImgAndSave(item.Url, title)
 	}
 }
 
@@ -110,6 +98,9 @@ func getImgAndSave(url string, dirname string) {
 	}
 
 	resp, err := http.Get(url)
+	if err != nil {
+		log.Fatal(err)
+	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
@@ -124,7 +115,7 @@ func getImgAndSave(url string, dirname string) {
 		}
 	}()
 
-	err = ioutil.WriteFile("/"+tag+"/"+dirname+"/"+name+".jpg", contents, 0644)
+	err = ioutil.WriteFile(tag+"/"+dirname+"/"+name+".jpg", contents, 0644)
 	if err != nil {
 		log.Fatal("写入文件失败", err)
 	}
