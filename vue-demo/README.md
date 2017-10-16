@@ -1,30 +1,4 @@
-# vue-test-demo
+一些vue测试DEMO
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### [/src/components/unittest/List.vue 相关是 vue单元测试练习]()
+### [/src/components/unittest/App.vue 是vue单页面测试](直接 vue build app.vue --port 3000就能看到页面了 不需要新建一个完整项目)
