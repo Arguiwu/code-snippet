@@ -1,15 +1,15 @@
 #一些golang的练习集合
 
-[今日头条图片爬去取](https://github.com/Arguiwu/code-snippet/blob/master/beauty/main.go)
-[邮件发送, 有空添加自定义模板](https://github.com/Arguiwu/code-snippet/blob/master/sending-email/main.go)
+###### [今日头条图片爬去取](https://github.com/Arguiwu/code-snippet/blob/master/beauty/main.go)
+###### [邮件发送, 有空添加自定义模板](https://github.com/Arguiwu/code-snippet/blob/master/sending-email/main.go)
 
 #
 #
 #
 
 # 常用包
-| 包名        | 说明   |
-| --------   | -----:  |
+| 包名 | 说明 |
+| -------- | ----- |
 | fmt | 实现格式化的输入输出操作，其中的fmt.Printf()和fmt.Println()是开发者使用最为频繁的函数 |
 | io | 实现了一系列非平台相关的IO相关接口和实现，比如提供了对os中系统相关的IO功能的封装。我们在进行流式读写（比如读写文件）时，通常会用到该包 |
 | bufio | 它在io的基础上提供了缓存功能。在具备了缓存功能后，bufio可以比较方便地提供ReadLine之类的操作 |
