@@ -5,6 +5,9 @@ import HelloWorld from '@/components/HelloWorld'
 // 单元测试  demo
 import UnitList from '@/components/unittest/List'
 
+// keeplive 测试
+import KeepLive from '@/components/KeepLive'
+
 Vue.use(Router)
 
 export default new Router({
@@ -18,6 +21,14 @@ export default new Router({
 			path: '/unitList',
 			name: 'unitList',
 			component: UnitList
+		},
+		{
+			path: '/keeplive',
+			name: 'keeplive',
+			component: KeepLive,
+			meta: {
+				keepAlive: true
+			}
 		}
 	]
 })
