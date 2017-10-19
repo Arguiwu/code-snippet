@@ -19,3 +19,35 @@
 | flag | 它提供命令行参数的规则定义和传入参数解析的功能。绝大部分的命令行程序都需要用到这个包 |
 | encoding/json | JSON目前广泛用做网络程序中的通信格式。本包提供了对JSON的基本支持，比如从一个对象序列化为JSON字符串，或者从JSON字符串反序列化出一个具体的对象等 |
 | http | 通过http包，只需要数行代码，即可实现一个爬虫或者一个Web服务器，这在传统语言中是无法想象的 |
+
+# 完整包列表
+| 目录 | 包名 | 说明 |
+| -------- | ----- | ----- |
+|   | bufio | 实现缓冲的I/O |
+|   | bytes | 提供了对字节切片操作的函数 |
+|   | crypto | 收集了常见的加密常数 |
+|   | errors | 实现了操作错误的函数 |
+|   | Expvar | 为公共变量提供了一个标准的接口，如服务器中的运算计数器 |
+|   | flag | 实现了命令行标记解析 |
+|   | fmt | 实现了格式化输入输出 |
+|   | hash | 提供了哈希函数接口 |
+	|   | html | <font color=red>实现了一个HTML5兼容的分词器和解析器</font> |
+	|   | image | <font color=red>实现了一个基本的二维图像库</font> |
+	|   | io | <font color=red>提供了对I/O原语的基本接口</font> |
+	|   | log | <font color=red>它是一个简单的记录包，提供最基本的日志功能</font> |
+|   | math | 提供了一些基本的常量和数学函数 |
+|   | mine | 实现了部分的MIME规范 |
+	|   | net | <font color=red>提供了一个对UNIX网络套接字的可移植接口，包括TCP/IP、 UDP域名解析和UNIX域套接字</font> |
+	|   | os | <font color=red>为操作系统功能实现了一个平台无关的接口</font> |
+	|   | path | <font color=red>实现了对斜线分割的文件名路径的操作</font> |
+|   | reflect | 实现了运行时反射，允许一个程序以任意类型操作对象 |
+|   | regexp | 实现了一个简单的正则表达式库 |
+|   | runtime | 包含与Go运行时系统交互的操作，如控制goroutine的函数 |
+|   | sort | 提供对集合排序的基础函数集 |
+	|   | strconv | <font color=red>实现了在基本数据类型和字符串之间的转换</font> |
+|   | strings | 实现了操作字符串的简单函数 |
+|   | sync | 提供了基本的同步机制，如互斥锁 |
+|   | syscall | 包含一个低级的操作系统原语的接口 |
+|   | testing | 提供对自动测试Go包的支持 |
+|   | time | 提供测量和显示时间的功能 |
+	|   | unicode | <font color=red>Unicode编码相关的基础函数</font> |
