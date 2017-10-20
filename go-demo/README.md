@@ -50,4 +50,16 @@
 |   | syscall | 包含一个低级的操作系统原语的接口 |
 |   | testing | 提供对自动测试Go包的支持 |
 |   | time | 提供测量和显示时间的功能 |
-	|   | unicode | <font color=red>Unicode编码相关的基础函数</font> |
+|   | unicode | <font color=red>Unicode编码相关的基础函数</font> |
+| archive | tar | 实现对tar压缩文档的访问 |
+|  | zip | 实现对tar压缩文档的访问 |
+| compress | bzip2 | 实现了bzip2解压缩 |
+|  | flate | 实现了RFC 1951中所定义的DEFLATE压缩数据格式 |
+|  | gzip | 实现了RFC 1951中所定义的gzip格式压缩文件的读和写 |
+|  | lzw | 实现了 Lempel-Ziv-Welch编码格式的压缩的数据格式 |
+|  | zlib | 实现了RFC 1950中所定义的zlib格式压缩数据的读和写 |
+| container | heap | 提供了实现heap.Interface接口的任何类型的堆操作 |
+|  | lsit | 实现了一个双链表 |
+|  | ring | 实现了对循环链表的操作 |
+| database | sql | 围绕SQL提供了一个通用的接口 |
+|  | sql/driver | 定义了数据库驱动所需实现的接口，同sql包的使用方式 |
