@@ -4,6 +4,18 @@
 	@return {boolean}
 */
 
+
+var isPalindrome = function(x) {
+    if(x < 0 || (x % 10 == 0 && x != 0)) {
+        return false
+    }
+    x = Math.abs(x)
+    if(x === Number(String(x).split('').reverse().join(''))) {
+        return true
+    }
+    return false
+};
+
 var isPalindrome = function(x) {
 	if(x < 0 || (x % 10 == 0 && x != 0)) {
 		return false
