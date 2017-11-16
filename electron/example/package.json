@@ -1,0 +1,13 @@
+{
+  "name": "btc",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . niaoyun --platform=win32 --arch=ia32 --out ./ --version 0.0.1 --overwrite --ignore=node_modules --ignore=.gitignore --icon=./app/logo/.png --download.mirror=https://npm.taobao.org/mirrors/electron/"
+  },
+  "devDependencies": {
+    "electron": "1.7.9",
+    "electron-packager": "^9.1.0"
+  }
+}

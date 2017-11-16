@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		html,
+		body {
+			height: 100%;
+		}
+		.dot {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="dot"></div>
+</body>
+<script>
+	window.onload = function() {
+		document.body.animate(
+			[
+				{
+					"background": "red",
+				},
+				{
+					"background": "green",
+				},
+				{
+					"background": "blue",
+				}
+			],
+		3000);
+
+		var dot = document.querySelector('.dot');
+		var frames = [
+			{ transform: 'rotate(0deg) translate(80px)'},
+			{ transform: 'rotate(360deg) translate(80px)'}
+		];
+		var timing = {
+			duration: 2500,
+			delay: 0,
+			iterations: Infinity,
+			direction: 'alternate',
+			easing: 'ease-in-out',
+			fill: 'forwards',
+		};
+		dot.animate(frames, timing);
+	};
+</script>
+</html>
