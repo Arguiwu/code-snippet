@@ -1,0 +1,14 @@
+{
+  "name": "ios-calc",
+  "version": "0.1.0",
+  "description": "基于 Electron + javascript 实现的桌面计算器应用",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager ./ 计算器 --platform=win32 --overwrite --ignore=node_modules --ignore=.gitignore --icon=./logo.png --download.mirror=https://npm.taobao.org/mirrors/electron/"
+  },
+  "devDependencies": {
+    "electron": "1.7.9",
+    "electron-packager": "^9.1.0"
+  }
+}
