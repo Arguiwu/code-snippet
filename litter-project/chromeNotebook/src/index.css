@@ -1,0 +1,58 @@
+:root {
+	--light: #F7F7F7;
+	--dark: #1A1A1A;
+
+	--foreground: var(--dark);
+	--background: var(--light);
+
+	--fontStack: "微软雅黑", "SF Mono", Consolas, monospace;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	box-sizing: border-box;
+	font: inherit;
+}
+
+html {
+	font-size: 150%;
+	line-height: 1.75;
+	background-color: var(--background);
+	color: var(--foreground);
+	transition: .1s ease;
+	transition-property: background-color, color;
+}
+
+.night {
+	--foreground: var(--light);
+	--background: var(--dark);
+}
+
+body {
+	max-width: 40rem;
+	margin: 0 auto;
+	padding: 3rem;
+	padding-bottom: 0;
+}
+
+.greeting {
+	font-family: var(--fontStack);
+	margin-bottom: 1.5rem;
+	opacity: .7;
+}
+
+.notepad {
+	font-family: var(--fontStack) !important;
+	display: block;
+	width: 100%;
+	height: calc(100vh - 6rem);
+	appearance: none;
+	font: inherit;
+	border: none;
+	outline: none;
+	color: inherit;
+	background: transparent;
+	resize: none;
+}
