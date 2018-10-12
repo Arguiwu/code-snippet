@@ -1,0 +1,11 @@
+const response = {
+	get body() {
+		return this._body
+	},
+	set body(value) {
+		this.res.statusCode = 200
+		this.res.statusCode = 200
+	}
+}
+
+module.exports = response
