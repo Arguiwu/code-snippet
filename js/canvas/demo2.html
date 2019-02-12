@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>绘制矩形</title>
+	    <style type="text/css">
+	    	#canvas {
+	    		display: block;
+	    		margin: 50px auto;
+	    		border: 1px solid #aaa;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div id="canvas-warp">
+			<canvas id="canvas"></canvas>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function() {
+			const canvas = document.getElementById('canvas');
+			canvas.width = 800;
+			canvas.height = 600;
+			const context = canvas.getContext('2d');
+
+			context.beginPath();
+			context.moveTo(150, 50);
+			context.lineTo(650, 50);
+      context.lineTo(650, 550);
+      context.lineTo(150, 550);
+      context.lineTo(150, 50);
+			context.lineWidth = 5;
+			context.strokeStyle = 'black';
+			context.fillStyle = "yellow";
+			context.fill();
+			context.stroke();
+			context.closePath();
+
+		}
+	</script>
+</html>

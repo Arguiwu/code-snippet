@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>绘制魔性图形</title>
+	    <style type="text/css">
+	    	#canvas {
+	    		display: block;
+	    		margin: 50px auto;
+	    		border: 1px solid #aaa;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div id="canvas-warp">
+			<canvas id="canvas"></canvas>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function() {
+			const canvas = document.getElementById('canvas');
+			canvas.width = 800;
+			canvas.height = 600;
+			const context = canvas.getContext('2d');
+
+			context.beginPath();
+			context.rect(0, 0, 800, 600);
+			context.fillStyle = '#AA9033';
+
+			context.fill();
+
+			context.beginPath();
+			for(var i = 0; i < 20; i++) {
+				drawRect(context, 200 + 10 * i, 100 + 10 * i, 400 - 20 * i, 400 - 20 * i, 'black');
+				drawRect(context, 205 + 10 * i, 105 + 10 * i, 390 - 20 * i, 390 - 20 * i, 'white');
+			}
+
+			context.beginPath();
+			context.rect(395, 295, 5, 5);
+			context.fillStyle = "black";
+			context.lineWidth = 5;
+
+			context.fill();
+			context.stroke();
+
+			function drawRect(ctx, x, y, width, height, color) {
+				ctx.beginPath();
+				ctx.rect(x, y, width, height);
+
+				ctx.lineWidth = 5;
+				ctx.strokeStyle = color;
+
+				ctx.stroke();
+			}
+		}
+	</script>
+</html>
